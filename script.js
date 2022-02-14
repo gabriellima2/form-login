@@ -3,12 +3,10 @@ inputs.forEach( (input, index) => {
     const label = document.querySelectorAll('.labels')[index];
     
     input.addEventListener('focus', () => {
-        console.log('focus')
         label.classList.add('foco');
     });
 
     input.addEventListener('blur', () => {
-        console.log('blur')
         if( !input.value ) {
             label.classList.remove('foco');
         };
@@ -23,9 +21,11 @@ form.addEventListener('submit', event => {
 
 
 function validate() {
-    const campo_erro = document.querySelectorAll('.msg-erro');
+    const email = document.querySelector('#email');
+    const senha = document.querySelector('#senha');
 
-    const valorNome = nome.value.trim();
+
+    const valorSenha = senha.value.trim();
     const valorEmail = email.value.trim();
 
     const validarEmail = email => {
@@ -33,22 +33,35 @@ function validate() {
         return regex.test(email);
     };
 
-    const tratarErro = ( elemento) => {
+    const tratarErro = elemento => {
         elemento.classList.toggle('erro');
-        campo_erro.innerHTML = 'Campo inválido!'
+
+        const campos_erro = document.querySelectorAll('.msg-erro');
+
+        let area_msgErro = '';
+        let erro = ''
+
+        campos_erro.forEach( campo => {
+            if ( campo.id.includes(elemento.id) ) {
+                area_msgErro = campo;
+                erro = `Campo ${elemento.id.toUpperCase()} inválido!`;
+            };
+        });
+
+        area_msgErro.innerHTML = erro;
         elemento.addEventListener('focus', () => {
             elemento.classList.remove('erro');
-            campo_erro.innerHTML = '';
+            area_msgErro.innerHTML = '';
         });
-    };
-
-    if ( valorNome === '' || valorNome.length <= 2) {
-        tratarErro(nome);
-        return;
     };
 
     if ( valorEmail === '' || !validarEmail(valorEmail) ) {
         tratarErro(email)
+        return;
+    };
+
+    if ( valorSenha === '' || valorSenha.length < 8) {
+        tratarErro(senha);
         return;
     };
 };

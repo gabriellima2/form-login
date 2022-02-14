@@ -12,15 +12,15 @@
         <h1 id="login">Login</h1>
 
         <div class="campos">
-            <input type="text" name="nome" class="inputs" id="nome" min="2" required>
-            <label for="nome" class="labels">Nome</label>
-            <span class="msg-erro"id="erro-nome"></span>
-        </div>
-
-        <div class="campos">
             <input type="email" name="email" class="inputs" id="email" required>
             <label for="email" class="labels">E-mail</label>
             <span class="msg-erro" id="erro-email"></span>
+        </div>
+
+        <div class="campos">
+            <input type="password" name="senha" class="inputs" id="senha" min="8" required>
+            <label for="senha" class="labels">Senha</label>
+            <span class="msg-erro"id="erro-senha"></span>
         </div>
         
         <button id="btn-submit" type="submit">Entre</button>

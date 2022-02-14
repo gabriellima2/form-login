@@ -10,25 +10,31 @@ body {
     width: 100vw;
     height: 100vh;
     font-family: 'Teko', sans-serif;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     background-color: #f1f1f1;
 }
 
 #form {
-    background-color: #1c1c1c;
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    gap: 15px;
-    color: #f1f1f1;
     width: 100%;
     max-width: 400px;
     min-width: 300px;
-    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 30px;
     border-radius: 5px;
+
+    color: #f1f1f1;
+    text-align: center;
+
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #1c1c1c;
 }
 
 #login {
@@ -38,6 +44,9 @@ body {
 }
 
 .campos {
+    height: 65px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
     position: relative;
 }
 
@@ -48,12 +57,13 @@ body {
 }
 
 .inputs {
+    width: 100%;
     background: none;
     outline: none;
     border-bottom: 1px solid #00F075;
+
     color: #f1f1f1;
     font-size: 1.2rem;
-    width: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -68,33 +78,37 @@ body {
     -webkit-text-fill-color: #f1f1f1;
 }
 
-.labels.foco {
-    transform: translateY(-145%);
-    font-size: 1rem;
-    color: rgba(204, 204, 204, 0.7);;
-}
-
 .labels {
     position: absolute;
     top: 50%;
     left: 5%;
     transform: translateY(-50%);
+
+    color: rgba(204, 204, 204, 0.4);
     font-size: 1.3rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: rgba(204, 204, 204, 0.4);
+    
     pointer-events: none;
     transition: all .3s;
 }
 
+.labels.foco {
+    transform: translateY(-180%);
+    font-size: 0.9rem;
+    color: rgba(204, 204, 204, 0.7);;
+}
+
 #btn-submit {
-    background-color: #00F075;
-    border-radius: 5px;
-    color: #1c1c1c;
     margin-top: 15px;
-    cursor: pointer;
+    border-radius: 5px;
+    
+    color: #1c1c1c;
     font-size: 1rem;
-    letter-spacing: 1px;    
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    background-color: #00F075;
 }
 
 #btn-submit:hover {
@@ -125,4 +139,14 @@ body {
     100% {
         background:#0BD934;
     }
+}
+
+
+.msg-erro {
+    position: absolute;
+    bottom: -13%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    letter-spacing: 1px;
 }
